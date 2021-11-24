@@ -1,0 +1,19 @@
+body{
+    background-color: steelblue;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: violet;
+}
+
+button > a {
+    color: black;
+}
