@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+</head>
+<body>
+    
+    <h1>Flash Cards</h1>
+    <h2>{{ card.question }}</h2>
+    <h3>{{ card.answer }}</h3>
+
+    <button><a href="{{url_for('delete_card',card_id = card_id)}}">Delete</a></button>
+
+
+    {% if card_id == max_card_id %}
+
+    <p>
+        <button>
+            <a href="{{url_for('cards_view',card_id = card_id - 1)}}">Previous card</a>
+        </button>
+    </p>
+
+    <p>
+        <button>
+            <a href="{{url_for('index')}}">Home Page</a>
+        </button>
+    </p>
+
+    {% elif card_id == 0 %}
+    
+    <p>
+        <button>
+            <a href="{{url_for('cards_view',card_id = card_id + 1)}}">Next card</a>
+        </button>
+    </p>
+
+    <p>
+        <button>
+            <a href="{{url_for('index')}}">Home Page</a>
+        </button>
+    </p>
+
+    {% else %}
+    <p>
+        <button>
+            <a href="{{url_for('cards_view',card_id = card_id - 1)}}">Previous card</a>
+        </button>
+        <button>
+            <a href="{{url_for('cards_view',card_id = card_id + 1)}}">Next card</a>
+        </button>
+    </p>
+
+    <p>
+        <button>
+            <a href="{{url_for('index')}}">Home Page</a>
+        </button>
+    </p>
+
+    {%endif%}
+
+
+</body>
+</html>

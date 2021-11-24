@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards!</title>
+</head>
+
+<body>
+
+    <ul>
+        {% for card in cards %}
+        <p>
+            <a href="{{url_for('cards_view',card_id=loop.index0) }}">
+                <li>{{card.question}}</li>
+            </a>
+        </p>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
