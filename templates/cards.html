@@ -3,14 +3,11 @@
 {% block title %}Cards{% endblock %}
 
 {% block content %}
-    <ul>
-        {% for card in cards %}
-        <p>
-            <a href="{{url_for('cards_view',card_id=loop.index0) }}">
-                <li>{{card.question}}</li>
-            </a>
-        </p>
-        {% endfor %}
-    </ul>
-
+<ul>
+    {% for card in cards %}
+    <li class="list-group py-3 col-3 text-center">
+        <a class="list-group-item list-group-item-action active" href="{{url_for('cards_view',card_id=loop.index0) }}">{{card.question}}</a>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}

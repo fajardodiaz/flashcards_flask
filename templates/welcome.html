@@ -3,26 +3,12 @@
 {% block title %}Welcome Flask{% endblock %}
 
 {% block content %}
-<h1>Welcome {{ name }}</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quasi qui accusantium debitis consequatur ut
-    iusto, ad ipsum. Aliquid deserunt facilis modi, corrupti delectus eligendi expedita earum fugiat quasi
-    laudantium.
-</p>
+<div class="container-fluid py-5">
 
-<img src="/static/vw1.jpg" alt="Volkswagen 1" width="500px">
-
-<p>{{ message }}</p>
-
-<ul>
-    {% for card in cards %}
-    <p>
-        <a href="{{url_for('cards_view',card_id=loop.index0) }}">
-            <li>{{card.question}}</li>
-        </a>
+    <h1>Welcome {{ name }}</h1>
+    <p>This is a simple project that include a CRUD for Flash Cards, you can add a card.
     </p>
-    {% endfor %}
-</ul>
-
-<button><a href="{{url_for('add_card')}}">Add Card</a></button>
+    <img src="/static/vw1.jpg" alt="Volkswagen 1" width="500px">
+</div>
 
 {% endblock %}

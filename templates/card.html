@@ -3,58 +3,94 @@
 {% block title %}Card {{card_id}}{% endblock %}
 
 {% block content %}
-    
+
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<div class="container-fluid">
     <h1>Flash Cards</h1>
     <h2>{{ card.question }}</h2>
     <h3>{{ card.answer }}</h3>
+</div>
 
-    <button><a href="{{url_for('delete_card',card_id = card_id)}}">Delete</a></button>
+<div class="container-fluid">
+
+    <p>
+        <a href="{{url_for('delete_card',card_id = card_id)}}">
+            <button type="button" class="btn btn-dark">Delete</button>
+        </a>
+    </p>
 
 
     {% if card_id == max_card_id %}
 
-    <p>
-        <button>
-            <a href="{{url_for('cards_view',card_id = card_id - 1)}}">Previous card</a>
-        </button>
+
+    <p class="container-fluid">
+
+        <p>
+            <a href="{{url_for('cards_view',card_id = card_id - 1)}}">
+                <button type="button" class="btn btn-dark">Previous card</button>
+            </a>
+        </p>
+
+        <p>
+            <a href="{{url_for('index')}}">
+                <button type="button" class="btn btn-dark">
+                    Home Page
+                </button>
+            </a>
+        </p>
     </p>
 
-    <p>
-        <button>
-            <a href="{{url_for('index')}}">Home Page</a>
-        </button>
-    </p>
 
     {% elif card_id == 0 %}
-    
-    <p>
-        <button>
-            <a href="{{url_for('cards_view',card_id = card_id + 1)}}">Next card</a>
-        </button>
-    </p>
 
-    <p>
-        <button>
-            <a href="{{url_for('index')}}">Home Page</a>
-        </button>
+    <p class="container-fluid">
+
+        <p>
+            <a href="{{url_for('cards_view',card_id = card_id + 1)}}">
+                <button type="button" class="btn btn-dark">Next card</button>
+            </a>
+        </p>
+
+        <p>
+            <a href="{{url_for('index')}}">
+                <button type="button" class="btn btn-dark">
+                    Home Page
+                </button>
+            </a>
+        </p>
     </p>
 
     {% else %}
-    <p>
-        <button>
-            <a href="{{url_for('cards_view',card_id = card_id - 1)}}">Previous card</a>
-        </button>
-        <button>
-            <a href="{{url_for('cards_view',card_id = card_id + 1)}}">Next card</a>
-        </button>
-    </p>
+    <p class="container-fluid">
 
-    <p>
-        <button>
-            <a href="{{url_for('index')}}">Home Page</a>
-        </button>
-    </p>
+        <p>
 
-    {%endif%}
+            <p>
+                <a href="{{url_for('cards_view',card_id = card_id - 1)}}">
+                    <button type="button" class="btn btn-dark">Previous card</button>
+                </a>
+            
+                <a href="{{url_for('cards_view',card_id = card_id + 1)}}">
+                    <button type="button" class="btn btn-dark">Next card</button>
+                </a>
+            </p>
+        </p>
+
+        <p>
+            <a href="{{url_for('index')}}">
+                <button type="button" class="btn btn-dark">
+                    Home Page
+                </button>
+            </a>
+        </p>
+    </p>
+</div>
+
+{%endif%}
 
 {% endblock %}
